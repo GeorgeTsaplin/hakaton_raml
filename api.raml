@@ -1,0 +1,53 @@
+#%RAML 1.0
+baseUri: http://localhost:5001/api/
+version: v1
+title: Hospitals API
+mediaType: application/json
+
+traits:
+  baseRequest:
+    responses:
+      200:
+        description: |
+          ОК - Запрос выполнен успешно.
+      400:
+        description: |
+          Bad request - Структура запроса некорректна. Дополнительная информация
+          включается в тело ответа в поле errors.
+        body:
+          example: !include examples/common-responseWithErrors.json
+      404:
+        description: |
+          Not found - Ресурс не найден.
+      500:
+        description: |
+          Internal server error - При обработке запроса возникла ошибка. Дополнительная информация
+          включается в тело ответа в поле errors.
+
+types:
+  specItem:
+    type: object
+    properties:
+      name: string
+      value: any
+  hospital:
+    type: object
+    properties:
+      name: string
+      openAt: date-only
+      address: string
+      region:
+        type: string
+        description: |
+          region ISO3166 code
+      specification: specItem[]
+
+/hospitals:
+  get:    
+    description: Get all hospitals 
+    is: [baseRequest]
+    responses:
+      '200':
+        body:
+          type: hospital[]
+          example: !include examples/hospitals.json

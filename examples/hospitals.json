@@ -1,0 +1,35 @@
+[
+  {
+		"name": "ГБУЗ \"Областной перинатальный центр\"",
+    "openAt": "2016-10-06",
+    "address": "Челябинск, ул. Воровского, 70",
+    "region": "RU-CHE",
+    "specification": [
+			{ "name": "МРТ", "value": false },
+			{ "name": "КТ", "value": true },
+			{ "name": "Покрытие (100км)", "value": 80 }
+		]
+  },
+  {
+		"name": "Областной перинатальный центр",
+    "openAt": "2015-01-01",
+    "address": "Екатеринбург, ул. Серафимы Дерябиной, 32",
+    "region": "RU-SVE",
+    "specification": [
+			{ "name": "МРТ", "value": true },
+			{ "name": "КТ", "value": true },
+			{ "name": "Покрытие (100км)", "value": 70 }
+		]
+  },
+  {
+		"name": "КГБУЗ КККЦОМД",
+    "openAt": "2014-01-01",
+    "address": "Красноярск, ул. Академика Киренского, 2",
+    "region": "RU-KYA",
+    "specification": [
+			{ "name": "МРТ", "value": true },
+			{ "name": "КТ", "value": false },
+			{ "name": "Покрытие (100км)", "value": 50 }
+		]
+  }
+]
