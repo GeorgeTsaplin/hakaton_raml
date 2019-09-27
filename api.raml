@@ -25,29 +25,53 @@ traits:
           включается в тело ответа в поле errors.
 
 types:
+  regionCode:
+    type: string
+    description: |
+      region iso3166 code
+      
+  dataItem:
+    type: object
+    properties:
+      date: date-only
+      region: regionCode
+      value: number
+  
   specItem:
     type: object
     properties:
       name: string
       value: any
+      
   hospital:
     type: object
     properties:
       name: string
       openAt: date-only
       address: string
-      region:
-        type: string
-        description: |
-          region ISO3166 code
+      region: regionCode
       specification: specItem[]
 
 /hospitals:
   get:    
-    description: Get all hospitals 
+    description: |
+      Перечень всех перинатальных центров 
     is: [baseRequest]
     responses:
       '200':
         body:
           type: hospital[]
           example: !include examples/hospitals.json
+          
+/data:
+  /infantsDeath:
+    get:
+      description: |
+        Статистика младенческой смертности
+      is: [baseRequest]
+      responses:
+        '200':
+          body:
+            type: dataItem[]
+            example: !include examples/infantsDeath.json
+      
